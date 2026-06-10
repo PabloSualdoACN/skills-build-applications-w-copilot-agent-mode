@@ -5,7 +5,7 @@
     "outDir": "dist",
     "rootDir": "src",
     "strict": true,
-    "moduleResolution": "Node",
+    "moduleResolution": "node10",
     "esModuleInterop": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true
