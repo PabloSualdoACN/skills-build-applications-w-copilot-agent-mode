@@ -1,4 +1,5 @@
 import mongoose from 'mongoose';
+import { connectDatabase } from '../config/database';
 import User from '../models/User';
 import Team from '../models/Team';
 import Activity from '../models/Activity';
@@ -8,8 +9,6 @@ import Workout from '../models/Workout';
 /**
  * Seed the octofit_db database with test data
  */
-
-const MONGODB_URI = 'mongodb://127.0.0.1:27017/octofit_db';
 
 async function clearDatabase() {
   console.log('🗑️  Clearing existing data...');
@@ -303,10 +302,8 @@ async function main() {
   try {
     console.log('\n🌱 Starting database seeding...\n');
 
-    await mongoose.connect(MONGODB_URI, {
-      dbName: 'octofit_db',
-    });
-    console.log(`✓ Connected to MongoDB: ${MONGODB_URI}\n`);
+    await connectDatabase();
+    console.log('\n');
 
     await clearDatabase();
     const users = await seedUsers();

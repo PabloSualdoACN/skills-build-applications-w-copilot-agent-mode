@@ -1,7 +1,7 @@
 import cors from 'cors';
 import express from 'express';
-import { getApiBaseUrl, getFrontendUrl } from './config';
-import { connectDatabase } from './database';
+import { getApiBaseUrl, getFrontendUrl } from './config/environment';
+import { connectDatabase } from './config/database';
 import usersRouter from './routes/users';
 import teamsRouter from './routes/teams';
 import activitiesRouter from './routes/activities';
