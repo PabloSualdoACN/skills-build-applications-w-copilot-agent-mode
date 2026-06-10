@@ -1,3 +1,4 @@
+// API: -8000.app.github.dev/api/activities
 import React, { useEffect, useState } from 'react';
 import { fetchApi, normalizeResponseArray } from './ApiClient';
 
