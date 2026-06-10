@@ -1,7 +1,7 @@
 import cors from 'cors';
 import express from 'express';
-import mongoose from 'mongoose';
 import { getApiBaseUrl, getFrontendUrl } from './config';
+import { connectDatabase } from './database';
 import usersRouter from './routes/users';
 import teamsRouter from './routes/teams';
 import activitiesRouter from './routes/activities';
@@ -17,7 +17,6 @@ import Workout from './models/Workout';
 
 const app = express();
 const port = Number(process.env.PORT ?? 8000);
-const mongoUri = process.env.MONGODB_URI ?? 'mongodb://127.0.0.1:27017/octofit_db';
 const apiBaseUrl = getApiBaseUrl();
 const frontendUrl = getFrontendUrl();
 
@@ -77,8 +76,7 @@ app.use((req, res) => {
 
 async function start() {
   try {
-    await mongoose.connect(mongoUri, { dbName: 'octofit_db' });
-    console.log('✓ MongoDB connected:', mongoUri);
+    await connectDatabase();
     console.log('✓ API URL:', apiBaseUrl);
     console.log('✓ Frontend URL:', frontendUrl);
 
@@ -87,7 +85,7 @@ async function start() {
       console.log(`✓ Environment: ${process.env.NODE_ENV ?? 'development'}`);
     });
   } catch (error) {
-    console.error('✗ Failed to connect to MongoDB:', error);
+    console.error('✗ Failed to start server:', error);
     process.exit(1);
   }
 }
