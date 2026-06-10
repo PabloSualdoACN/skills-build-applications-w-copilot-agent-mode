@@ -1,5 +1,5 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { NavLink, Routes, Route, Navigate } from 'react-router-dom';
+import { BrowserRouter, NavLink, Routes, Route, Navigate } from 'react-router-dom';
 import Activities from './components/Activities';
 import Leaderboard from './components/Leaderboard';
 import Teams from './components/Teams';
@@ -30,7 +30,8 @@ function Home() {
 
 function App() {
   return (
-    <main className="container py-5">
+    <BrowserRouter>
+      <main className="container py-5">
       <header className="text-center mb-4">
         <h1>OctoFit Tracker</h1>
         <p className="text-muted">Modern React 19 + Vite frontend with react-router-dom navigation</p>
@@ -77,6 +78,7 @@ function App() {
         </div>
       </div>
     </main>
+  </BrowserRouter>
   );
 }
 
