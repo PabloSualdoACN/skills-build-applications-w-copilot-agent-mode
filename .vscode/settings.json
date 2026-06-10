@@ -1,0 +1,12 @@
+{
+    "chat.tools.terminal.autoApprove": {
+        "/^cd /workspaces/skills-build-applications-w-copilot-agent-mode && gh run view 27297899473 --json jobs --jq '\\.jobs\\[\\] \\| \\{name: \\.name, conclusion: \\.conclusion, status: \\.status, id: \\.databaseId\\}'$/": {
+            "approve": true,
+            "matchCommandLine": true
+        },
+        "/^cd /workspaces/skills-build-applications-w-copilot-agent-mode && gh run view 27297899473 --job 80635470604 --log --exit-status$/": {
+            "approve": true,
+            "matchCommandLine": true
+        }
+    }
+}
